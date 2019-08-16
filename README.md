@@ -3,7 +3,22 @@
 ## Getting started
 
 1. Import sql into your database
-2. Into the server directory :
+2. Change the following in server/src/db.js
+From 
+```
+
+const Conn = new Sequelize(
+  'database', <-- Your DB name>
+  'username', <-- Your DB username>
+  'password', <-- Your DB pass>
+  {
+    dialect:'mysql',
+    host: 'localhost'
+  }
+);
+```
+
+3. Into the server directory :
 Installing dependancies  and run
 ```
 npm install
@@ -17,5 +32,3 @@ Open another bash and run
 npm install
 npm run start
 ```
-
-Enjoy it !!
