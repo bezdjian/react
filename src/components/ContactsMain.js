@@ -1,11 +1,10 @@
 import React, {Component} from "react";
-import Contacts from "./components/Contacts";
-import Button from "./components/Button";
-import "./App.css"
+import Contacts from "../constrants/Contacts";
+import Button from "../constrants/Button";
 import { hot } from "react-hot-loader/root"
 //import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 
-class MyApp extends Component {
+class ContactsMain extends Component {
     state = {
         contacts: []
     };
@@ -29,4 +28,4 @@ class MyApp extends Component {
     }
 }
 
-export default hot(MyApp)
+export default hot(ContactsMain)
