@@ -4,9 +4,7 @@
 
 1. Import sql into your database
 2. Change the following in server/src/db.js
-From 
 ```
-
 const Conn = new Sequelize(
   'database', <-- Your DB name>
   'username', <-- Your DB username>
