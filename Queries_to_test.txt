@@ -1,0 +1,45 @@
+
+query getSingleCourse($courseID: Int!){
+  course(id: $courseID) {
+    id
+    title
+    author
+    description
+    url
+  }
+}
+
+Query Variable
+
+{
+    "courseID": 1
+}
+
+## Multi query in one
+query getSingleCourse($courseID: Int!, $courseID2: Int!){
+  C_all: courses{
+    id
+    title
+    topic
+  },
+  C1: course(id: $courseID) {
+    id
+    title
+    author
+    description
+    url
+  },
+  C2: course(id:$courseID2){
+    id
+    title
+    author
+    description
+    url
+  }
+}
+
+Query Variables
+{
+  "courseID": 1,
+  "courseID2": 2
+}
