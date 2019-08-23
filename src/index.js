@@ -1,17 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import ContactsMain from './components/ContactsMain';
+import './css/App.css';
 import App from './App';
 import Menu from './components/Menu';
+//import ContactsMain from "./components/ContactsMain";
 import * as serviceWorker from './serviceWorker';
 
-import { ApolloProvider } from 'react-apollo';
-import { ApolloClient } from 'apollo-client';
-import { HttpLink } from "apollo-link-http";
+import {ApolloProvider} from 'react-apollo';
+import {ApolloClient} from 'apollo-client';
+import {HttpLink} from "apollo-link-http";
 import {InMemoryCache} from "apollo-cache-inmemory";
 
-const cache = new  InMemoryCache();
+import {onError} from 'apollo-link-error';
+import ErrorMessage from "./components/Error";
+import {ApolloLink} from "apollo-link";
+
+// Errors
+const errorLink = onError(({graphqlErrors, networkError}) => {
+    if (graphqlErrors || networkError) return <ErrorMessage error={graphqlErrors}/>
+});
+// Cache
+const cache = new InMemoryCache();
+//httpLink to graphql backend.
 const httpLink = new HttpLink({
     uri: 'https://api.github.com/graphql',
     headers: {
@@ -20,17 +30,20 @@ const httpLink = new HttpLink({
         }`
     }
 });
+
+// Combine 2 Links
+const link = ApolloLink.from([errorLink, httpLink]);
 const client = new ApolloClient({
-    link: httpLink,
+    link,
     cache
 });
 
-ReactDOM.render(<Menu />, document.getElementById('menu'));
+ReactDOM.render(<Menu/>, document.getElementById('menu'));
 
 //ReactDOM.render(<ContactsMain />, document.getElementById('contacts'));
 ReactDOM.render(
     <ApolloProvider client={client}>
-        <App />
+        <App/>
     </ApolloProvider>,
     document.getElementById('footer'));
 
