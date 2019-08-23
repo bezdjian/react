@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './css/App.css';
 import App from './App';
-import Menu from './components/Menu';
+//import Menu from './components/Menu';
 //import ContactsMain from "./components/ContactsMain";
 import * as serviceWorker from './serviceWorker';
 
@@ -38,7 +38,7 @@ const client = new ApolloClient({
     cache
 });
 
-ReactDOM.render(<Menu/>, document.getElementById('menu'));
+//ReactDOM.render(<Menu/>, document.getElementById('menu'));
 
 //ReactDOM.render(<ContactsMain />, document.getElementById('contacts'));
 ReactDOM.render(

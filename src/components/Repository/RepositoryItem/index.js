@@ -37,8 +37,8 @@ const RepositoryItem = ({
                 <div>
                     {owner && (
                         <span>
-              Owner: <a href={owner.url}>{owner.login}</a>
-            </span>
+                            Owner: <a href={owner.url}>{owner.login}</a>
+                        </span>
                     )}
                 </div>
             </div>
