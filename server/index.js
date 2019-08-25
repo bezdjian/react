@@ -30,11 +30,11 @@ mongoose.connect(
 ).then(() => console.log("MongoDB Connected!"))
     .catch(err => console.log(err));
 
-// Create an express server and a Graphql endpoint
-const server = new GraphQLServer({
+// Create an express index and a Graphql endpoint
+const index = new GraphQLServer({
     schema,
     context
 });
 
-server.start(options, ({port}) =>
+index.start(options, ({port}) =>
     console.log(`Graphql server is running on http://localhost:${port}`));

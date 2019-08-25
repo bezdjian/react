@@ -5,20 +5,20 @@
   "main": "index.js",
   "scripts": {
     "test": "npm test",
-    "start": "node server/server.js"
+    "start": "npm run server",
+    "server": "nodemon server/index.js"
   },
   "author": "Harout Bezdjian",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.1.0",
-    "express": "^4.17.1",
-    "express-graphql": "^0.9.0",
     "graphql": "^14.5.3",
     "graphql-tools": "^4.0.5",
     "graphql-yoga": "^1.18.2",
     "merge-graphql-schemas": "^1.7.0",
     "mongodb": "^3.3.1",
     "mongoose": "^5.6.11",
+    "nodemon": "^1.19.1",
     "npm": "^6.11.2"
   }
 }
