@@ -1,21 +1,26 @@
+const db = require('./mongoUtils');
 
 // Mocking get course function
 const Resolver = {
-    getCourse:function(args) {
+    getCourse: function (args) {
         var id = args.id;
         return coursesData.filter(course => {
             return course.id == id;
         })[0];
-    },    
-    getCourses:function(args) {
-        if (args.topic) {
-            var topic = args.topic;
-            return coursesData.filter(course => course.topic === topic); // return Course that has the matching topic
-        } else {
-            return coursesData; // return all
-        }
     },
-    updateCourse:function({id, topic}) {
+    getCourses: function () {
+        db.connect();
+        const mongo = db.getDB();
+
+        console.log("mongo: " + mongo);
+        return mongo.collection("course").find({}).toArray(function (err, result) {
+            if (err) throw err;
+            console.log("getCourses");
+            console.log(result);
+            return result;
+        });
+    },
+    updateCourse: function ({id, topic}) {
         coursesData.map(course => {
                 if (course.id === id) {
                     course.topic = topic;
@@ -23,7 +28,7 @@ const Resolver = {
                 }
             }
         );
-    }    
+    }
 };
 
 

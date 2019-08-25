@@ -1,13 +1,11 @@
+require('dotenv').config();
+
 const express = require('express');
 const express_graphql = require('express-graphql');
 
 const schema = require('./schema');
 const resolver = require('./resolvers');
-
-const MongoDB = require('mongodb');
-
-// Connect to MongoDB
-const db = () => MongoDB.connect('mongodb://localhost/graphql_db');
+const db = require('./mongoUtils');
 
 // Root resolver
 const root = {
