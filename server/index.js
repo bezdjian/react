@@ -8,13 +8,6 @@ const {models} =  require('./db/index');
 
 const pubsub = new PubSub();
 
-const options = {
-    port: process.env.PORT || "4000",
-    endpoint: "/graphql",
-    subscriptions: "/subscriptions",
-    playground: "/playground"
-};
-
 const context = {
     models,
     pubsub
@@ -31,10 +24,10 @@ mongoose.connect(
     .catch(err => console.log(err));
 
 // Create an express index and a Graphql endpoint
-const index = new GraphQLServer({
+const server = new GraphQLServer({
     schema,
     context
 });
 
-index.start(options, ({port}) =>
+server.start( ({port}) =>
     console.log(`Graphql server is running on http://localhost:${port}`));

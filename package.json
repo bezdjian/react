@@ -13,6 +13,7 @@
   "dependencies": {
     "dotenv": "^8.1.0",
     "graphql": "^14.5.3",
+    "graphql-server-express": "^1.4.1",
     "graphql-tools": "^4.0.5",
     "graphql-yoga": "^1.18.2",
     "merge-graphql-schemas": "^1.7.0",
