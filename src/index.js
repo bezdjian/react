@@ -1,9 +1,10 @@
+//require('dotenv').config();
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './css/App.css';
 import App from './App';
-//import Menu from './components/Menu';
-//import ContactsMain from "./components/ContactsMain";
+
 import * as serviceWorker from './serviceWorker';
 
 import {ApolloProvider} from 'react-apollo';
@@ -22,13 +23,14 @@ const errorLink = onError(({graphqlErrors, networkError}) => {
 // Cache
 const cache = new InMemoryCache();
 //httpLink to graphql backend.
+console.log("process.env.GRAPHQL_SERVER_URL: " + process.env.GRAPHQL_SERVER_URL);
 const httpLink = new HttpLink({
-    uri: 'https://api.github.com/graphql',
-    headers: {
+    uri: 'http://localhost:4000' // TODO: make this work process.env.GRAPHQL_SERVER_URL
+    /*headers: {
         Authorization: `Bearer ${
             process.env.REACT_APP_GITHUB_PERSONAL_ACCESS_TOKEN
         }`
-    }
+    }*/
 });
 
 // Combine 2 Links
@@ -45,7 +47,7 @@ ReactDOM.render(
     <ApolloProvider client={client}>
         <App/>
     </ApolloProvider>,
-    document.getElementById('footer'));
+    document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
