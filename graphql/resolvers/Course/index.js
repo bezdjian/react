@@ -6,16 +6,19 @@ module.exports = {
             const courses = await Course.find({})
                 .populate()
                 .exec();
-            console.log("QUUEEERRYYYY: "  + courses);
+            console.log("Querying courses: "  + courses);
 
-            return courses.map( c => ({
-                _id: c.toString(),
+            return courses;
+
+            // OR you can map if there are other variables...
+            /*courses.map( c => ({
+                _id: c._id,
                 title: c.title,
                 author: c.author,
                 description: c.description,
                 topic: c.topic,
                 url: c.url
-            }));
+            }));*/
         }
     }
     /*

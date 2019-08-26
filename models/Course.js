@@ -8,6 +8,9 @@ ObjectID.prototype.valueOf = function () {
 };
 
 const CourseSchema = new Schema({
+   _id: {
+       type: ObjectID
+   },
    title: {
        type: String
    },
@@ -25,4 +28,4 @@ const CourseSchema = new Schema({
    }
 });
 
-module.exports = mongoose.model("Course", CourseSchema);
+module.exports = mongoose.model("Course", CourseSchema, 'course');
