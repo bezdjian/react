@@ -30,7 +30,7 @@
     "graphql-tools": "^1.2.1",
     "mysql": "^2.14.1",
     "mysql2": "^1.4.1",
-    "sequelize": "^4.6.0",
+    "sequelize": "^4.44.3",
     "subscriptions-transport-ws": "^0.8.2"
   }
 }
