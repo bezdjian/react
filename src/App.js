@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import './css/App.css';
-import './components/Courses/css/Repository.css'
+//import './css/App.css';
+//import './components/Courses/css/Repository.css'
 
 import Profile from './components/Profile';
 

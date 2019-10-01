@@ -9,7 +9,7 @@ const Profile = () => (
         {({data, loading, error}) => {
             if (error) return <ErrorMessage error={error}/>
             if (loading) return <div>Loading... </div>;
-
+            console.log("Getting data with...");
             const {courses} = data; // This means, get the array that starts with courses.
             console.log(courses);
             return <CoursesList list={courses}/>
@@ -26,6 +26,7 @@ const GET_ALL_COURSES = gql`
         description
         topic
         url
+        price
     }
 }
 `;

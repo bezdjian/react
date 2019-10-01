@@ -2,38 +2,41 @@ import React from 'react';
 import Link from '../../Link';
 
 const CourseItem = ({
-                        title,
-                        author,
-                        description,
-                        topic,
-                        url
-                    }) => (
-    <div>
-        <div className="RepositoryItem-title">
-            <h2>
-                <Link href={url}>{title}</Link>
-            </h2>
-        </div>
-
-        <div className="RepositoryItem-description">
-            <div className="topic">
-                Topic: {topic}
+    title,
+    author,
+    description,
+    topic,
+    url,
+    price
+}) => (
+        <div class="card">
+            <div class="card-header">
+                <h2>
+                    <Link href={url}>{title}</Link>
+                </h2>
             </div>
-            <div
-                className="RepositoryItem-description-info"
-                dangerouslySetInnerHTML={{__html: description}}
-            />
-            <div className="RepositoryItem-description-details">
-                <div>
+            <div class="card-body">
+                <div className="card-title">
+                    Topic: {topic}
+                </div>
+                <div class="card-text">
+                    {description}
+                </div>
+
+                <div class="card-text">
                     {author && (
-                        <span>
-                            Author: {author}
-                        </span>
+                        <small class="text-muted">
+                            Author: <Link href={url}>{author}</Link>
+                        </small>
                     )}
+                </div>
+                <div>
+                    <small class="text-muted">
+                        {price && (<span>Price: {price}</span>)}
+                    </small>
                 </div>
             </div>
         </div>
-    </div>
-);
+    );
 
 export default CourseItem;
