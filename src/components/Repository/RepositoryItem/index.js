@@ -37,9 +37,14 @@ const RepositoryItem = ({
                 <div>
                     {owner && (
                         <span>
-                            Owner: <a href={owner.url}>{owner.login}</a>
+                            Owner: <a href={owner.url} target="_blank" rel="noopener noreferrer">{owner.login}</a>
                         </span>
                     )}
+                </div>
+                <div>
+                    <span>
+                       Watchers: {watchers.totalCount}
+                    </span>
                 </div>
             </div>
         </div>
