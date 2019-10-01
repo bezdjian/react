@@ -25,6 +25,9 @@ const CourseSchema = new Schema({
    },
    url: {
        type: String
+   },
+   price: {
+        type: String
    }
 });
 

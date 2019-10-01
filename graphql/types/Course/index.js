@@ -13,6 +13,7 @@ const courseSchema = `
         description: String
         topic: String
         url: String
+        price: String
     }
 `;
 
